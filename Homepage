@@ -1,0 +1,21 @@
+7
+This question already has an answer here:
+
+How do you Programmatically Download a Webpage in Java 10 answers
+I just want to retrieve any web page's source code from Java. I found lots of solutions so far, but I couldn't find any code that works for all the links below:
+
+http://www.cumhuriyet.com.tr?hn=298710
+http://www.fotomac.com.tr/Yazarlar/Olcay%20%C3%87ak%C4%B1r/2011/11/23/hesap-makinesi
+http://www.sabah.com.tr/Gundem/2011/12/23/basbakan-konferansta-konusuyor#
+The main problem for me is that some codes retrieve web page source code, but with missing ones. For example the code below does not work for the first link.
+
+InputStream is = fURL.openStream(); //fURL can be one of the links above
+BufferedReader buffer = null;
+buffer = new BufferedReader(new InputStreamReader(is, "iso-8859-9"));
+
+int byteRead;
+while ((byteRead = buffer.read()) != -1) {
+    builder.append((char) byteRead);
+}
+buffer.close();
+System.out.println(builder.toString());
